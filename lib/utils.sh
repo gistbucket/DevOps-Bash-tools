@@ -70,43 +70,50 @@ die(){
     exit 1
 }
 
-hr(){
-    echo "================================================================================"
+bar1(){
+    echo "## ======================================================================== ##"
 }
-
-hr2(){
-    echo "=================================================="
+hr1() {
+    echo "> > > > > > > $*"
 }
-
-hr3(){
-    echo "========================================"
+bar2(){
+    echo "#---==---==---==---==---==---==---==---==---#"
 }
-
-section(){
-    name="$*"
-    hr
-    "$srcdir_bash_tools_utils/../center.sh" "$@"
-    hr
-    if [ -n "${PROJECT:-}" ]; then
-        echo "PROJECT: $PROJECT"
-    fi
-    if is_inside_docker; then
-        echo "(running inside docker)"
-    fi
+hr2() {
+    echo "> > > > $*"
+}
+bar3(){
+    echo "#--_--_--_--_--_--_--_--_--#"
+}
+hr3() {
+    echo "> > > $*"
+}
+section1(){
+    local name="$*"
+    echo
+    echo
+    bar1
+    hr1 $name
+    bar1
+    echo
     echo
 }
 
 section2(){
-    hr2
-    hr2echo "$@"
-    hr2
+    local name="$*"
+    echo
+    bar2
+    hr2 $name
+    bar2
     echo
 }
 
 section3(){
-    hr3
-    hr3echo "$@"
-    hr3
+    local name="$*"
+    echo
+    bar3
+    hr3 $name
+    bar3
     echo
 }
 
