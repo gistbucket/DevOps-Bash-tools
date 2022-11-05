@@ -185,7 +185,7 @@ check_exit_code(){
     fi
 }
 
-tick_msg(){
+chk_mk_msg(){
     # defined in .bash.d/colors.sh
     # shellcheck disable=SC2154
     echo -e "${bldgrn}✓ ${txtrst}$*"
